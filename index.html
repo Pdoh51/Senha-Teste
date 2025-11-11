@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Senha teste 0.1</title>
+
+    <link rel="stylesheet" href="./src/css/estilo.css" />
+    <link rel="stylesheet" href="./src/css/responsivo.css" />
+</head>
+
+<body>
+    <!-- GIF de fundo fixo -->
+    <div class="fundo-gif"></div>
+
+    <!-- GIF de título atrás de tudo -->
+    <div class="titulo-gif"></div>
+
+    <form action="">
+        <div class="container">
+            <!-- TOPO FIXO: mensagem + linha-senha + cadeados -->
+            <div class="topo-fixo">
+                <p id="mensagem"></p>
+
+                <div class="linha-senha">
+                    <label for="senha">Senha:</label>
+                    <div class="campo-digitacao">
+                        <span class="cursor" id="cursor">|</span>
+                        <input id="senha" type="text" onfocus="esconderCursor()" onblur="mostrarCursor()" autofocus />
+                    </div>
+                    <button type="button" onclick="verificarSenha()">Enviar</button>
+                </div>
+
+                <div class="cadeados" id="cadeados">
+                    <img src="./src/img/cadeado_fechado.png" class="cadeado" id="cadeado0" />
+                    <img src="./src/img/cadeado_fechado.png" class="cadeado" id="cadeado1" />
+                    <img src="./src/img/cadeado_fechado.png" class="cadeado" id="cadeado2" />
+                    <img src="./src/img/cadeado_fechado.png" class="cadeado" id="cadeado3" />
+                    <img src="./src/img/cadeado_fechado.png" class="cadeado" id="cadeado4" />
+                </div>
+            </div>
+
+            <!-- RESPOSTAS DAS FASES -->
+            <div class="resposta-fase-container">
+                <div class="resposta-fase fase_1" style="display: block;">
+                    <img class="img_fase_1" src="./src/img/fase_1.jpeg" alt="Imagem da fase 1" />
+                </div>
+                <div class="resposta-fase fase_2">Conteúdo da fase 2</div>
+                <div class="resposta-fase fase_3">Conteúdo da fase 3</div>
+                <div class="resposta-fase fase_4">Conteúdo da fase 4</div>
+                <div class="resposta-fase fase_5">Conteúdo da fase 5</div>
+            </div>
+        </div>
+    </form>
+
+    <audio id="erroAudio" src="./src/audio/erro.mp3"></audio>
+
+    <script src="./src/js/index.js"></script>
+</body>
+
+</html>

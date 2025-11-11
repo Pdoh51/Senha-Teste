@@ -1,0 +1,15 @@
+/* Responsividade para celulares */
+@media (max-width: 430px) {
+  .senha {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 20%;
+  }
+
+  input[type="text"] {
+    width: 55%;
+  }
+}
