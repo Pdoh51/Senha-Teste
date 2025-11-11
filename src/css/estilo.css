@@ -35,7 +35,6 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  overflow: hidden;
   overflow-y: auto;
 }
 
@@ -46,6 +45,10 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 110%;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
 }
 
 /* Mensagem de feedback */
@@ -72,12 +75,17 @@ body {
 /* Linha de senha */
 .linha-senha {
   display: flex;
-  align-items: stretch;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
+  width: 100%;
+  max-width: 600px;
   background-color: #b69b7a;
   border-radius: 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border: 5px solid #523b20;
+  box-sizing: border-box;
 }
 
 /* Label */
@@ -85,8 +93,6 @@ label {
   color: white;
   font-weight: bold;
   font-size: 20px;
-  align-self: flex-end;
-  margin-bottom: 12px;
   margin-left: 15px;
 }
 
@@ -100,6 +106,8 @@ input[type="text"] {
   border-radius: 20px;
   font-size: 18px;
   background-color: #b69b7a;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 input[type="text"]:focus {
@@ -131,6 +139,8 @@ button:hover {
   align-items: center;
   flex: 1;
   height: 100%;
+  min-width: 200px;
+  max-width: 100%;
 }
 
 /* Cursor animado */
@@ -175,7 +185,7 @@ button:hover {
 
 /* Área que contém os conteúdos das fases */
 .resposta-fase-container {
-  height: 350px; /* ou o valor que acomode todas as fases confortavelmente */
+  height: 350px;
   overflow: hidden;
   margin-top: 30px;
   min-height: 200px;
@@ -194,7 +204,7 @@ button:hover {
   animation: fadeIn 0.5s ease;
 }
 
-.img_fase_1{
+.img_fase_1 {
   width: 400px;
 }
 
