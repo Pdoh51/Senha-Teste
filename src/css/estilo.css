@@ -1,9 +1,9 @@
 /* Fundo confete animado */
 .fundo-gif {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100vh;
   height: 100vh;
   background-image: url('../img/confete.gif');
   background-size: cover;
@@ -23,6 +23,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  left: -10px;
   z-index: -2;
 }
 
@@ -49,6 +50,7 @@ body {
   width: 100%;
   max-width: 800px;
   box-sizing: border-box;
+  left: -9px;
 }
 
 /* Mensagem de feedback */
@@ -62,7 +64,7 @@ body {
   transition: opacity 1s ease;
   opacity: 1;
   position: absolute;
-  top: -65px;
+  top: -55px;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
@@ -78,7 +80,6 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   width: 100%;
   max-width: 600px;
   background-color: #b69b7a;
@@ -206,6 +207,25 @@ button:hover {
 
 .img_fase_1 {
   width: 400px;
+}
+
+.resposta-fase.fase_2 {
+  margin-top: -60px;
+  background-color: #9e7441;
+  border-radius: 50px;
+  border: 5px solid #0a0602;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px 10px;
+  width: 100%;
+  max-width: 70vh;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* Animação suave de entrada */

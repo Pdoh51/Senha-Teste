@@ -1,6 +1,6 @@
 const senhas = [
   "236,75",
-  "não",
+  "O que o ovo novo disse pro ovo velho? Cancan",
   "vai",
   "acertar",
   "essa"
@@ -24,6 +24,33 @@ function verificarSenha() {
     const cadeado = document.getElementById(`cadeado${faseAtual}`);
     cadeado.src = "./src/img/cadeado_aberto.png";
     cadeado.classList.add("verde");
+
+    // Pausa música atual e toca som de acerto
+    const acertoAudio = document.getElementById("acertoAudio");
+    const musica = document.getElementById("musicaFase");
+
+    if (musica) {
+      musica.pause();
+      musica.currentTime = 0;
+    }
+
+    if (acertoAudio) {
+      acertoAudio.currentTime = 0;
+      acertoAudio.play();
+
+      acertoAudio.onended = () => {
+        if (musica) {
+          if (faseAtual + 1 < senhas.length) {
+            musica.src = `./src/audio/music_fase_${faseAtual + 2}.mp3`;
+          } else {
+            musica.src = `./src/audio/music_fase_final.mp3`;
+          }
+
+          musica.loop = true;
+          musica.play();
+        }
+      };
+    }
 
     faseAtual++;
 
