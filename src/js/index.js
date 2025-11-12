@@ -130,3 +130,16 @@ window.onload = function() {
     });
   }
 };
+
+document.getElementById("botaoIniciar").addEventListener("click", () => {
+  const musica = document.getElementById("musicaFase");
+  const tela = document.getElementById("telaBoasVindas");
+
+  if (musica) {
+    musica.currentTime = 0;
+    musica.loop = true;
+    musica.play();
+  }
+
+  tela.style.display = "none";
+});
