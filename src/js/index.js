@@ -129,8 +129,19 @@ document.getElementById("senha").addEventListener("keydown", function(event) {
   }
 });
 
-// Ativar fase 1 ao carregar a página
+// Ativar fase 1 ao carregar a página e iniciar música
 window.onload = function() {
   document.getElementById("senha").focus();
   mostrarConteudoFase(1);
+
+  const musica = document.getElementById("musicaFase");
+  if (musica) {
+    musica.currentTime = 0;
+    musica.loop = true;
+    musica.play().catch(() => {
+      document.body.addEventListener("click", () => {
+        musica.play();
+      }, { once: true });
+    });
+  }
 };
