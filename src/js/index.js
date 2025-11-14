@@ -30,10 +30,8 @@ function verificarSenha() {
 
       acertoAudio.onended = () => {
         if (musica) {
-          if (faseAtual + 1 < senhas.length) {
+          if (faseAtual + 1 < 7) {
             musica.src = `./src/audio/music_fase_${faseAtual + 1}.mp3`;
-          } else {
-            musica.src = `./src/audio/music_fase_final.mp3`;
           }
           musica.loop = true;
           musica.play();
@@ -131,6 +129,18 @@ window.addEventListener("beforeunload", () => {
   if (musica) {
     musica.pause();
     musica.currentTime = 0;
+  }
+});
+
+document.addEventListener("visibilitychange", () => {
+  const musica = document.getElementById("musicaFase");
+  if (document.hidden && musica) {
+    musica.pause();
+    musica.currentTime = 0;
+  } else if (!document.hidden && musica && musica.paused) {
+    musica.play().catch(() => {
+      document.body.addEventListener("click", () => musica.play(), { once: true });
+    });
   }
 });
 
