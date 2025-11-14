@@ -12,12 +12,8 @@
 }
 
 #botaoIniciar {
-  font-size: 24px;
-  background-color: #b69b7a;
-  border: 3px solid #523b20;
-  border-radius: 20px;
+  background-color: #CEBAA1;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
   min-width: 230px;
 }
 
@@ -120,10 +116,9 @@ label {
 
 /* Campo de entrada */
 input[type="text"] {
-  padding-left: 25px;
   color: white;
   flex: 1;
-  padding: 12px;
+  padding: 13px;
   border: none;
   border-radius: 20px;
   font-size: 18px;
@@ -238,7 +233,7 @@ button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   padding: 20px 10px;
   width: 100%;
-  max-width: 70vh;
+  max-width: 50vh;
   box-sizing: border-box;
   text-align: center;
   white-space: normal;

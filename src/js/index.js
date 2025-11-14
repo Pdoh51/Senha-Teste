@@ -1,11 +1,4 @@
-const senhas = [
-  "236,75",
-  "O que o ovo novo disse pro ovo velho? Cancan",
-  "vai",
-  "acertar",
-  "essa"
-];
-
+const senhas = ["1", "1", "1", "1", "1"];
 let faseAtual = 0;
 let mensagemTimeout = null;
 
@@ -42,7 +35,6 @@ function verificarSenha() {
           } else {
             musica.src = `./src/audio/music_fase_final.mp3`;
           }
-
           musica.loop = true;
           musica.play();
         }
@@ -89,7 +81,7 @@ function verificarSenha() {
 
 function mostrarConteudoFase(fase) {
   const todasAsFases = document.querySelectorAll(".resposta-fase");
-  todasAsFases.forEach(div => div.style.display = "none");
+  todasAsFases.forEach(div => (div.style.display = "none"));
 
   const ativa = document.querySelector(`.fase_${fase}`);
   if (ativa) {
@@ -104,33 +96,22 @@ function esconderCursor() {
 function mostrarCursor() {
   const senha = document.getElementById("senha").value;
   const cursor = document.getElementById("cursor");
-
   cursor.style.display = senha === "" ? "inline" : "none";
 }
 
-document.getElementById("senha").addEventListener("keydown", function(event) {
+document.getElementById("senha").addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
     verificarSenha();
   }
 });
 
-window.onload = function() {
+window.onload = function () {
   document.getElementById("senha").focus();
   mostrarConteudoFase(1);
-
-  const musica = document.getElementById("musicaFase");
-  if (musica) {
-    musica.currentTime = 0;
-    musica.loop = true;
-    musica.play().catch(() => {
-      document.body.addEventListener("click", () => {
-        musica.play();
-      }, { once: true });
-    });
-  }
 };
 
+// Inicia música ao clicar em "Abir presente"
 document.getElementById("botaoIniciar").addEventListener("click", () => {
   const musica = document.getElementById("musicaFase");
   const tela = document.getElementById("telaBoasVindas");
@@ -142,4 +123,23 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
   }
 
   tela.style.display = "none";
+});
+
+// Para a música ao sair ou recarregar a página
+window.addEventListener("beforeunload", () => {
+  const musica = document.getElementById("musicaFase");
+  if (musica) {
+    musica.pause();
+    musica.currentTime = 0;
+  }
+});
+
+// Reinicia a música se o usuário voltar para a aba
+document.addEventListener("visibilitychange", () => {
+  const musica = document.getElementById("musicaFase");
+  if (!document.hidden && musica && musica.paused) {
+    musica.play().catch(() => {
+      document.body.addEventListener("click", () => musica.play(), { once: true });
+    });
+  }
 });
