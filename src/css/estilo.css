@@ -13,7 +13,7 @@
 
 #botaoIniciar {
   cursor: pointer;
-  min-width: 230px;
+  width: 50%;
 }
 
 /* Fundo confete animado */
@@ -53,6 +53,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  height: auto;
   overflow-y: auto;
 }
 
@@ -62,7 +63,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 110%;
+  margin-top: 60%;
   padding: 20px;
   width: 100%;
   max-width: 800px;
@@ -80,7 +81,7 @@ body {
   transition: opacity 1s ease;
   opacity: 1;
   position: absolute;
-  top: -55px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
@@ -142,6 +143,8 @@ button {
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 button:hover {
@@ -202,7 +205,6 @@ button:hover {
 /* Área que contém os conteúdos das fases */
 .resposta-fase-container {
   height: 350px;
-  overflow: hidden;
   margin-top: 30px;
   min-height: 200px;
   display: flex;
@@ -224,7 +226,30 @@ button:hover {
   width: 400px;
 }
 
-.resposta-fase.fase_2 {
+.texto_fase_2 {
+  margin-top: 200px;
+  background-color: #9e7441;
+  border-radius: 50px;
+  border: 5px solid #0a0602;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 15px 10px;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.pergunta_fase_2 {
+  background-color: #9e7441;
+  border-radius: 50px;
+  border: 5px solid #0a0602;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 15px 7px;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.resposta-fase.fase_3 {
   margin-top: -60px;
   background-color: #9e7441;
   border-radius: 50px;
@@ -241,6 +266,38 @@ button:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.nokia{
+  position: absolute;
+  width: 250px;
+  left: -120px;
+}
+
+.ligar{
+  position: absolute;
+  width: 143px;
+  height: 99px;
+  left: -65px;
+  top: 150px;
+  border-radius: 10%;
+}
+
+.mensagem_mamaco{
+  position: absolute;
+  top: 350px;
+  display: none; 
+  color: white; 
+  font-size: 20px; 
+  margin-top: 160px;
+  background-color: #9e7441;
+  border-radius: 50px;
+  border: 5px solid #0a0602;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 15px 15px;
+  width: 100%;
+  min-width: 320px;
+  left: -180px;
 }
 
 /* Animação suave de entrada */

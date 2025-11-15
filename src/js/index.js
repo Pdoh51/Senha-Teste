@@ -153,3 +153,26 @@ document.addEventListener("visibilitychange", () => {
     });
   }
 });
+
+let mamacoEstado = 0; // 0 = inicial, 1 = mamaco.jpng, 2 = mamaco2.jpng
+
+document.querySelector(".ligar").addEventListener("click", () => {
+  const imagemMamaco = document.querySelector(".ligar");
+  const mensagem = document.getElementById("mensagemMamaco");
+
+  if (mamacoEstado === 0) {
+    imagemMamaco.src = "./src/img/mamaco.jpeg";
+    mensagem.textContent = "Fala meu gorilão! como que vc vai? tá precisando de uma ajuda nos enigmas?";
+    mensagem.style.display = "block";
+    mamacoEstado = 1;
+  } else if (mamacoEstado === 1) {
+    imagemMamaco.src = "./src/img/mamaco2.jpeg";
+    mensagem.textContent = "Hmmmmm deixa eu pensar aqui.";
+    mensagem.style.display = "block";
+    mamacoEstado = 2;
+  } else {
+    imagemMamaco.src = "./src/img/ligar.png";
+    mensagem.style.display = "none";
+    mamacoEstado = 0;
+  }
+});
