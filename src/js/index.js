@@ -47,6 +47,7 @@ function verificarSenha() {
       document.getElementById("senha").value = "";
       mostrarCursor();
       mostrarConteudoFase(faseAtual + 1);
+      atualizarFaseVisual(faseAtual + 1);
 
       mensagemTimeout = setTimeout(() => {
         mensagem.style.opacity = "0";
@@ -59,6 +60,13 @@ function verificarSenha() {
       mensagemTimeout = setTimeout(() => {
         mensagem.style.opacity = "0";
         cadeadosContainer.style.opacity = "0";
+
+        // Esconde a dica e o conteúdo das fases
+        const dica = document.querySelector(".dica");
+        const respostaContainer = document.querySelector(".resposta-fase-container");
+
+        if (dica) dica.style.display = "none";
+        if (respostaContainer) respostaContainer.style.display = "none";
       }, 5000);
     }
   } else {
@@ -87,6 +95,12 @@ function mostrarConteudoFase(fase) {
   }
 }
 
+function atualizarFaseVisual(fase) {
+  const container = document.querySelector(".container");
+  container.classList.remove("fase-1", "fase-2", "fase-3", "fase-4", "fase-5");
+  container.classList.add(`fase-${fase}`);
+}
+
 function esconderCursor() {
   document.getElementById("cursor").style.display = "none";
 }
@@ -107,9 +121,10 @@ document.getElementById("senha").addEventListener("keydown", function (event) {
 window.onload = function () {
   document.getElementById("senha").focus();
   mostrarConteudoFase(1);
+  atualizarFaseVisual(1);
 };
 
-// Inicia música ao clicar em "Abir presente"
+// Inicia música ao clicar em "Abrir presente"
 document.getElementById("botaoIniciar").addEventListener("click", () => {
   const musica = document.getElementById("musicaFase");
   const tela = document.getElementById("telaBoasVindas");
@@ -154,7 +169,8 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
-let mamacoEstado = 0; // 0 = inicial, 1 = mamaco.jpng, 2 = mamaco2.jpng
+// Interação com o mamaco
+let mamacoEstado = 0; // 0 = inicial, 1 = mamaco.jpeg, 2 = mamaco2.jpeg
 
 document.querySelector(".ligar").addEventListener("click", () => {
   const imagemMamaco = document.querySelector(".ligar");

@@ -271,14 +271,14 @@ button:hover {
 .nokia{
   position: absolute;
   width: 250px;
-  left: -120px;
+  left: -130px;
 }
 
 .ligar{
   position: absolute;
   width: 143px;
   height: 99px;
-  left: -65px;
+  left: -75px;
   top: 150px;
   border-radius: 10%;
 }
@@ -298,6 +298,35 @@ button:hover {
   width: 100%;
   min-width: 320px;
   left: -180px;
+}
+
+.dica {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: top 0.5s ease;
+}
+
+/* Posições personalizadas por fase */
+.fase-1 .dica{
+  top: 530px;
+}
+
+.fase-2 .dica{
+  top: 750px;
+}
+
+.fase-3 .dica {
+  top: 500px;
+}
+
+.fase-4 .dica {
+  top: 500px;
+}
+
+.fase-5 .dica {
+  top: 500px;
 }
 
 /* Animação suave de entrada */
